@@ -1,6 +1,7 @@
 import socket
 from getpass import getpass
 from sys import argv
+import os
 
 HOST = "127.0.0.1"
 PORT = 1100
@@ -37,6 +38,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     while (1):
         data = s.recv(2).decode()
         if data[0] == 's':
+            os.system("shutdown now")
             exit()
 
     s.close()
